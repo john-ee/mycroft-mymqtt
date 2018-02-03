@@ -1,9 +1,8 @@
 {
-  "utterance": "Turn the light on",
+  "utterance": "Publish in room 1 on",
   "intent_type": "mymqttIntent",
   "intent": {
-    "CommandKeyword": "turn",
-    "ModuleKeyword": "light",
-    "ActionKeyword": "on"
+    "PublishKeyword" : "Publish in",
+    "Request" : "room 1 on"
   }
 }

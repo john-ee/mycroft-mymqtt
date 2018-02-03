@@ -1,9 +1,0 @@
-{
-  "utterance": "power off the tv",
-  "intent_type": "mymqttIntent",
-  "intent": {
-    "CommandKeyword": "power",
-    "ModuleKeyword": "tv",
-    "ActionKeyword": "off"
-  }
-}
