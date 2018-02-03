@@ -32,26 +32,24 @@ class mqtt_client(MycroftSkill):
 
 
     def __build_single_command(self):
-        intent = IntentBuilder("writeIntent").require("PublishKeyword").require("Request")
-        self.register_intent(intent, self.handle_write_command)
+        intent = IntentBuilder("publishIntent").require("PublishKeyword").require("Request")
+        self.register_intent(intent, self.handle_publish_command)
         #intent = IntentBuilder("readIntent").require("ReadKeyword").require("TopicKeyword").require("TopicName")
         #self.register_intent(intent, self.handle_read_command)
 
-    def handle_write_command(self, message):
+    def handle_publish_command(self, message):
         words = message.data['TopicName'].split(' ')
         payload = words[len(words)-1]
         topic_name = ""
         for i in range(len(words)-1):
-            topic_name += words[i]
-            if i != len(words)-2:
-                topic_name += "/" + words[i]
+            topic_name += "/" + words[i]
         if (self.protocol == "mqtt"):
 	    mqttc = mqtt.Client("MycroftAI")
 	    if (self.mqttauth == "yes"):
 	        mqttc.username_pw_set(self.mqttuser,self.mqttpass)
 	    if (self.mqttssl == "yes"):
-		mqttc.tls_set(self.mqttca) #/etc/ssl/certs/ca-certificates.crt
-            mqttc.connect(self.mqtthost,self.mqttport)
+		    mqttc.tls_set(self.mqttca) #/etc/ssl/certs/ca-certificates.crt
+        mqttc.connect(self.mqtthost,self.mqttport)
 	    mqttc.publish(topic_name, payload)
 	    mqttc.disconnect()
 	    self.speak_dialog("cmd.sent")
