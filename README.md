@@ -1,6 +1,7 @@
 # MQTT for MycroftAI
 
 This is a skill written for mycroft to publish commands over an mqtt broker for home automation or any other purpose.
+Forked from jamiehoward430 [here](https://github.com/jamiehoward430/mycroft-mymqtt)
 
 # Commands
 
@@ -34,7 +35,7 @@ Or you can add it the default trusted certificates.
 - Update the CA store:```sudo update-ca-certificates```
 
 ```
-  "mymqttskill": {
+  "mqtt_client": {
     "protocol": "mqtt",
     "mqtt-ssl": "yes",
     "mqtt-ca-cert": "/etc/ssl/certs/ca-certificates.crt",

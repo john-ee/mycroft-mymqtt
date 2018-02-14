@@ -17,13 +17,13 @@ class mqtt_client(MycroftSkill):
         super(mqtt_client, self).__init__(name="mqtt_client")
 
         self.protocol = self.config["protocol"]
-	self.mqttssl = self.config["mqtt-ssl"]
-	self.mqttca = self.config["mqtt-ca-cert"]
-	self.mqtthost = self.config["mqtt-host"]
-	self.mqttport = self.config["mqtt-port"]
-	self.mqttauth = self.config["mqtt-auth"]
-	self.mqttuser = self.config["mqtt-user"]
-	self.mqttpass = self.config["mqtt-pass"]
+        self.mqttssl = self.config["mqtt-ssl"]
+        self.mqttca = self.config["mqtt-ca-cert"]
+        self.mqtthost = self.config["mqtt-host"]
+        self.mqttport = self.config["mqtt-port"]
+        self.mqttauth = self.config["mqtt-auth"]
+        self.mqttuser = self.config["mqtt-user"]
+        self.mqttpass = self.config["mqtt-pass"]
 
 
     def initialize(self):
